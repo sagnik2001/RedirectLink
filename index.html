@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Redirect to App Store</title>
+
+    <script>
+        function redirectToAppStore() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                // Redirect iOS users to App Store
+                window.location.href = 'https://apps.apple.com/us/app/your-app-name/id123456789';
+            } else if (/android/i.test(userAgent)) {
+                // Redirect Android users to Play Store app or website
+                window.location.href = "market://details?id=babycode.ielts";
+            } else if (/Windows/i.test(userAgent)) {
+                // Redirect Windows users to Microsoft Store
+                window.location.href = 'ms-windows-store://pdp/?ProductId=babycode.ielts';
+            } else {
+                // Redirect users on other platforms to a web page
+                window.location.href = 'https://google.com';
+            }
+        }
+
+        redirectToAppStore(); // Call the function immediately when the page loads
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
